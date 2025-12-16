@@ -96,7 +96,7 @@ def config(
         stability=StabilityConfig(stability_protection=True),
         pipeline=JointDiTSingle3DPipelineConfig(
             ckpt_path=None,
-            vae_config=None,
+            vae_config=VisualTokenizerConfig(),
             voxel_vae_config=voxel_vae_config,
             proportion_empty_prompts=0.1,
             transformer_config=TransformerXLModelConfigSingle(

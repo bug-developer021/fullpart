@@ -40,3 +40,4 @@ scikit-video
 tyro==0.7.3
 jaxtyping
 open-clip-torch
+gradio==4.44.1
