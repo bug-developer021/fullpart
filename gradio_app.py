@@ -68,6 +68,16 @@ def _load_pipelines(
     return stage1_pipeline, stage2_pipeline, device
 
 
+def _to_path(upload) -> Optional[Path]:
+    if upload is None:
+        return None
+    if isinstance(upload, (str, Path)):
+        return Path(upload)
+    if hasattr(upload, "name"):
+        return Path(upload.name)
+    raise TypeError(f"无法识别的上传类型: {type(upload)!r}")
+
+
 def run_inference(
     image_file,
     box_file,
@@ -80,7 +90,9 @@ def run_inference(
     skip_stage2: bool,
     device: str,
 ):
-    if image_file is None or box_file is None:
+    image_path = _to_path(image_file)
+    box_path = _to_path(box_file)
+    if image_path is None or box_path is None:
         return None, None, "请上传输入图片和对应的边界框 .npy 文件。"
 
     sample_id = sample_id or "sample"
@@ -104,9 +116,7 @@ def run_inference(
         return None, None, f"模型加载失败: {exc}"
 
     try:
-        batch = _prepare_raw_batch(
-            Path(image_file.name), Path(box_file.name), sample_id, None
-        )
+        batch = _prepare_raw_batch(image_path, box_path, sample_id, None)
         batch = _to_device_dtype(batch, device_obj, "bf16")
     except Exception as exc:  # noqa: BLE001
         return None, None, f"输入预处理失败: {exc}"
