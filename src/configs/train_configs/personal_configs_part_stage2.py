@@ -19,9 +19,9 @@ global_slat_dir="dataset/partversexl/textured_mesh_latents/dinov2_vitl14_reg_sla
 
 
 voxel_vae_config = VoxelTokenizerConfigStage2(
-    enc_pretrained="../tmp/interactive_quick_3d/weights/image/ckpts/slat_enc_swin8_B_64l8_fp16",
-    dec_pretrained="../tmp/interactive_quick_3d/weights/image/ckpts/slat_dec_mesh_swin8_B_64l8m256c_fp16",
-    dec_gs_pretrained="../tmp/interactive_quick_3d/weights/image/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16",
+    enc_pretrained="JeffreyXiang/TRELLIS-image-large/ckpts/slat_enc_swin8_B_64l8_fp16",
+    dec_pretrained="JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_mesh_swin8_B_64l8m256c_fp16",
+    dec_gs_pretrained="JeffreyXiang/TRELLIS-image-large/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16",
     torch_hub_dir="~/.cache/torch/hub", # for loading dino_v2
 )
 
