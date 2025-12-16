@@ -112,7 +112,7 @@ def config(
         stability=StabilityConfig(stability_protection=True),
         pipeline=JointDiTSingle3DPipelineConfigStage2(
             ckpt_path=None,
-            vae_config=None,
+            vae_config=VisualTokenizerConfig(),
             voxel_vae_config=voxel_vae_config, # NOTE(lihe): new added
             s1_save_dir='sample_results/sample_results_vox',
             proportion_empty_prompts=0.1,
