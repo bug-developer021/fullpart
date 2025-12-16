@@ -18,6 +18,14 @@ And we introduce the largest and most comprehensively annotated 3D part dataset 
 This repository is currently under development. Thank you for your patience.
 
 
+## 🖥️ Gradio 推理 Demo
+我们提供了一个基于 Gradio 的简易页面，支持上传条件图片与对应的 bounding box（`.npy`），运行两阶段推理，并在线查看/下载生成的 GLB 文件。
+
+```bash
+python gradio_app.py
+```
+
+
 ## 🔨 Installation
 1. Clone the repo:
       ```bash
